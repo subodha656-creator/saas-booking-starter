@@ -18,12 +18,10 @@ export default async function Home() {
     <HeroSection>
       <Navbar user={user!} accessNavbar={false}/>
     </HeroSection>
-   {/* <SectionWrapper> */}
     <FeaturesSection />
     <Testimonials/>
     <PricingSection/>
     <FAQSection/>
-    {/* </SectionWrapper> */}
     <Footer/>
 </>
   );
