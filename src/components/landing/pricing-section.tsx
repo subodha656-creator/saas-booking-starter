@@ -1,3 +1,4 @@
+'use client'
 import { AppWindowIcon, CodeIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -16,142 +17,60 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
+import { pricingAction } from "@/app/server-actions/pricing-action"
+import { toast } from "sonner"
+import { useContext, useState } from "react"
+import LoginModal from "../auth/login-modal"
+import { CheckoutContext } from "@/context/checkout-context"
+import { pricingData } from "@/lib/constants/suscription"
+import { useRouter } from "next/navigation"
 
-const pricingData = {
-  monthly: [
-    {
-      id: 'starter',
-      name: 'Starter',
-      price: 10,
-      billing: 'Per user / billed monthly',
-      description: 'Ideal for individuals',
-      features: [
-        '1 user',
-        'Email support',
-        'Booking calendar',
-        'Basic therapy sessions',
-        'Progress tracking'
-      ],
-      popular: false,
-      savings: null
-    },
-    {
-      id: 'pro',
-      name: 'Pro',
-      price: 29,
-      billing: 'Per user / billed monthly',
-      description: 'Best for small teams',
-      features: [
-        'Up to 5 users',
-        'Priority email support',
-        'Advanced analytics',
-        'Group therapy sessions',
-        'Custom wellness plans',
-        'Video consultations'
-      ],
-      popular: true,
-      savings: null
-    },
-    {
-      id: 'enterprise',
-      name: 'Enterprise',
-      price: 79,
-      billing: 'Per user / billed monthly',
-      description: 'For larger organizations',
-      features: [
-        'Unlimited users',
-        'Dedicated support',
-        'Custom integrations',
-        'White-label solution',
-        'Advanced reporting',
-        'API access',
-        'Custom branding'
-      ],
-      popular: false,
-      savings: null
-    }
-  ],
-  yearly: [
-    {
-      id: 'starter',
-      name: 'Starter',
-      price: 100,
-      billing: 'Per user / billed yearly',
-      monthlyEquivalent: 8.33,
-      description: 'Ideal for individuals',
-      features: [
-        '1 user',
-        'Email support',
-        'Booking calendar',
-        'Basic therapy sessions',
-        'Progress tracking',
-        '2 months free'
-      ],
-      popular: false,
-      savings: 17
-    },
-    {
-      id: 'pro',
-      name: 'Pro',
-      price: 290,
-      billing: 'Per user / billed yearly',
-      monthlyEquivalent: 24.17,
-      description: 'Best for small teams',
-      features: [
-        'Up to 5 users',
-        'Priority email support',
-        'Advanced analytics',
-        'Group therapy sessions',
-        'Custom wellness plans',
-        'Video consultations',
-        '2 months free'
-      ],
-      popular: true,
-      savings: 17
-    },
-    {
-      id: 'enterprise',
-      name: 'Enterprise',
-      price: 790,
-      billing: 'Per user / billed yearly',
-      monthlyEquivalent: 65.83,
-      description: 'For larger organizations',
-      features: [
-        'Unlimited users',
-        'Dedicated support',
-        'Custom integrations',
-        'White-label solution',
-        'Advanced reporting',
-        'API access',
-        'Custom branding',
-        '2 months free'
-      ],
-      popular: false,
-      savings: 17
-    }
-  ]
-};
+
+
+function findPlanByPriceAnywhere(price: number) {
+  return (
+    pricingData.monthly.find(plan => plan.price === price) ||
+    pricingData.yearly.find(plan => plan.price === price)
+  );
+}
+
+
+
+
 
 export function PricingSection(){
+   const [stripeModalOpen, setStripeModalOpen] = useState<boolean>(false);
+  const [loginModalOpen, setLoginModalOpen] = useState<boolean>(false);
+  const [servicePrice, setServicePrice] = useState<string>("");
+  const {setData} = useContext(CheckoutContext);
+  const router = useRouter()
+  
+
+
     return (
-      <section className="px-4 sm:px-6 lg:px-8 xl:px-12 py-16 flex justify-center items-center bg-gray-50 flex-col">
+      <>
+
+  {
+    loginModalOpen &&   <LoginModal open={loginModalOpen} onClose={() => setLoginModalOpen(false)} />
+  }
+      <section id="pricing" className="px-4 sm:px-6 lg:px-8 xl:px-12 py-16 flex justify-center items-center bg-calm-tertiary flex-col">
         <div className="w-full max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <Button className="bg-white shadow-lg text-black hover:text-white mb-6">
+            <Button className="bg-calm-primary shadow-lg text-white hover:text-white mb-6">
               Pricing
             </Button>
 
-            <h3 className="text-3xl font-bold text-center mb-4">
+            <h3 className="text-3xl font-bold text-center mb-4 text-white">
               Save your plans when you pay yearly
             </h3>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-white text-lg max-w-2xl mx-auto">
               Choose the perfect plan for your needs. All plans include our core features with varying levels of support and customization.
             </p>
           </div>
 
           <div className="w-full">
             <Tabs defaultValue="monthly" className="w-full">
-              <TabsList className="flex justify-center items-center space-x-2 mb-8 w-full max-w-md mx-auto">
+              <TabsList className="flex justify-center bg-calm-primary items-center space-x-2 mb-8 w-full max-w-md mx-auto">
                 <TabsTrigger className="flex-1" value="monthly">Monthly</TabsTrigger>
                 <TabsTrigger className="flex-1" value="yearly">Yearly</TabsTrigger>
               </TabsList>
@@ -160,34 +79,41 @@ export function PricingSection(){
                 {pricingData.monthly.map((plan) => (
                   <Card 
                     key={plan.id}
+                    style={{
+                     
+                     background: "linear-gradient(145deg, #82204A 0%, #B64E7A 50%, #82204A 100%)"
+                    }}
                     className={`w-full hover:shadow-lg transition-shadow duration-300 ${
-                      plan.popular ? 'border-2 border-blue-500 relative' : ''
+                      plan.popular ? 'border-2 border-calm-primary relative' : ''
                     }`}
                   >
                     {plan.popular && (
                       <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                        <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        <span className="bg-calm-primary text-white px-4 py-1 rounded-full text-sm font-semibold">
                           Most Popular
                         </span>
                       </div>
                     )}
                     <div className="flex flex-col justify-start items-start p-6 lg:p-8 h-full">
                       <div className="flex-grow w-full">
-                        <p className="mb-6 text-xl font-semibold text-gray-800">{plan.name}</p>
+                        <p className="mb-6 text-xl font-semibold text-white">{plan.name}</p>
                         <div className="mb-8">
-                          <h3 className="text-4xl lg:text-5xl font-bold text-gray-900">${plan.price}</h3>
-                          <span className="text-sm text-gray-500">{plan.billing}</span>
+                          <h3 className="text-4xl lg:text-5xl font-bold text-white">${plan.price}</h3>
+                          <span className="text-sm text-white">{plan.billing}</span>
                         </div>
-                        <p className="text-sm font-bold mb-4 text-gray-700">{plan.description}</p>
+                        <p className="text-sm font-bold mb-4 text-white">{plan.description}</p>
                         <ul className="space-y-3 mb-8">
                           {plan.features.map((feature, index) => (
-                            <li key={index} className="before:content-['✔'] before:mr-3 before:text-green-500 before:font-bold text-gray-600">
+                            <li key={index} className="before:content-['✔'] before:mr-3 before:text-calm-tertiary before:font-bold text-white">
                               {feature}
                             </li>
                           ))}
                         </ul>
                       </div>
-                      <Button className="w-full bg-blue-500 text-white hover:bg-blue-600 py-3 text-base font-semibold">
+                      <input name="price" type="hidden" value={plan?.price} />
+                      <input name="plan" type="hidden" value={plan?.name} />
+
+                      <Button onClick={()=>router.push("/payment/"+plan?.sn)} className="w-full bg-calm-primary text-white hover:bg-calm-primary hover:border hover:border-white/100 py-3 text-base font-semibold">
                         Get Started
                       </Button>
                     </div>
@@ -199,13 +125,16 @@ export function PricingSection(){
                 {pricingData.yearly.map((plan) => (
                   <Card 
                     key={plan.id}
+                    style={{
+                      background: "linear-gradient(135deg, #82204A 0%, #A94064 50%, #82204A 100%)"
+                    }}
                     className={`w-full hover:shadow-lg transition-shadow duration-300 ${
-                      plan.popular ? 'border-2 border-blue-500 relative' : ''
+                      plan.popular ? 'border-2 border-calm-primary relative' : ''
                     }`}
                   >
                     {plan.popular && (
                       <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                        <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        <span className="bg-calm-primary text-white px-4 py-1 rounded-full text-sm font-semibold">
                           Most Popular
                         </span>
                       </div>
@@ -213,32 +142,37 @@ export function PricingSection(){
                     <div className="flex flex-col justify-start items-start p-6 lg:p-8 h-full">
                       <div className="flex-grow w-full">
                         <div className="flex items-center justify-between mb-6">
-                          <p className="text-xl font-semibold text-gray-800">{plan.name}</p>
+                          <p className="text-xl font-semibold text-white">{plan.name}</p>
                           {plan.savings && (
-                            <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">
+                            <span className="bg-calm-primary text-white px-2 py-1 rounded-full text-xs font-semibold">
                               Save {plan.savings}%
                             </span>
                           )}
                         </div>
                         <div className="mb-8">
-                          <h3 className="text-4xl lg:text-5xl font-bold text-gray-900">${plan.price}</h3>
-                          <span className="text-sm text-gray-500">{plan.billing}</span>
+                          <h3 className="text-4xl lg:text-5xl font-bold text-white">${plan.price}</h3>
+                          <span className="text-sm text-white">{plan.billing}</span>
                           {plan.monthlyEquivalent && (
-                            <p className="text-xs text-gray-400 mt-1">
+                            <p className="text-xs text-white mt-1">
                               ${plan.monthlyEquivalent}/month when paid annually
                             </p>
                           )}
                         </div>
-                        <p className="text-sm font-bold mb-4 text-gray-700">{plan.description}</p>
+                        <p className="text-sm font-bold mb-4 text-white">{plan.description}</p>
                         <ul className="space-y-3 mb-8">
                           {plan.features.map((feature, index) => (
-                            <li key={index} className="before:content-['✔'] before:mr-3 before:text-green-500 before:font-bold text-gray-600">
+                            <li key={index} className="before:content-['✔'] before:mr-3 before:text-calm-tertiary before:font-bold text-white">
                               {feature}
                             </li>
                           ))}
                         </ul>
                       </div>
-                      <Button className="w-full bg-blue-500 text-white hover:bg-blue-600 py-3 text-base font-semibold">
+                      <input name="price" type="hidden" value={plan?.price} />
+                      <input name="plan" type="hidden" value={plan?.name} />
+
+                      <Button onClick={()=>{
+                        router.push("/payment/"+plan?.sn)}
+                        } className="w-full bg-calm-primary text-white hover:bg-calm-primary hover:border hover:border-white/100 py-3 text-base font-semibold">
                         Get Started
                       </Button>
                     </div>
@@ -249,5 +183,6 @@ export function PricingSection(){
           </div>
         </div>
       </section>
+      </>
     )
 }

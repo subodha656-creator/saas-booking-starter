@@ -87,25 +87,25 @@ export default function Testimonials() {
   }, [])
 
   return (
-    <section className="px-2 sm:px-4 lg:px-6 py-16 flex justify-center items-center bg-gray-50 flex-col">
-      <Button className="bg-white shadow-lg text-black hover:text-white">
+    <section className="px-2 sm:px-4 lg:px-6 py-16 flex justify-center items-center bg-calm-primary/50 flex-col">
+      <Button className="bg-calm-primary shadow-lg text-white hover:text-white">
         Testimonials
       </Button>
 
-      <h2 className="text-2xl font-bold text-center mb-8 mt-8">
+      <h2 className="text-2xl text-white font-bold text-center mb-8 mt-8">
         What Our Users Say
       </h2>
 
-      <div className="max-w-[1320px] w-full">
+      <div className="max-w-[1320px] w-full lg:px-12">
         <Carousel className="max-w-full ">
           <CarouselContent className="-ml-1">
             {groupedTestimonials.map((group, index) => (
-              <CarouselItem key={index} className="pl-1">
+              <CarouselItem key={index} className="pl-1 ">
                 <div className="flex gap-6 justify-center">
                   {group.map((testimonial, i) => (
-                    <Card key={i} className="flex-1 min-w-[380px] h-[400px] sm:h-[400px]">
+                    <Card key={i} className="flex-1 min-w-[380px] h-[400px] sm:h-[400px] bg-calm-tertiary shadow-xl">
                       <CardContent className="flex flex-col p-6">
-                        <p className="mb-4 text-gray-700 italic mt-6">
+                        <p className="mb-4 text-white italic mt-6">
                           "{testimonial.testimonial}"
                         </p>
                         <div className="mt-12">
@@ -117,11 +117,11 @@ export default function Testimonials() {
                             />
                         </div>
                         <div>
-<div className="font-semibold">{testimonial.name}</div>
-                        <div className="text-sm text-gray-500">
+<div className="font-semibold text-white">{testimonial.name}</div>
+                        <div className="text-sm text-white">
                           {testimonial.role}
                         </div>
-                        <div className="text-xs text-gray-400 mt-1">
+                        <div className="text-xs text-white mt-1">
                           {testimonial.address}
                         </div>
                         </div>

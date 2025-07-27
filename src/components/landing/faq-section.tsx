@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import SectionWrapper from "../layout/section-wrapper";
 const Faqs = [
   {
     "category": "General",
@@ -152,12 +153,13 @@ export default function FAQSection(){
 
     const currentFaqs = Faqs.find(faq => faq.category === category)?.faqs || [];
     return (
-       <section className="px-4 sm:px-6 lg:px-8 py-16 flex flex-col items-center">
-  <Button className="bg-white shadow-lg text-black hover:text-white">
+      <div className="bg-calm-primary/80">         <SectionWrapper>
+      <section className="px-4 sm:px-6 lg:px-8 py-16 flex flex-col items-center">
+  <Button className="bg-calm-primary hover:bg-calm-primary/80 shadow-xl border border-white/40 text-white hover:text-white">
     FAQs
   </Button>
 
-  <h3 className="mt-8 text-3xl mb-10 font-bold text-center max-w-2xl">
+  <h3 className="mt-8 text-white text-3xl mb-10 font-bold text-center max-w-2xl">
     Everything you need to know about our services
   </h3>
 
@@ -170,7 +172,7 @@ export default function FAQSection(){
             data-cat={cat}
             onClick={changeCategory}
             variant="outline"
-            className={`${cat === category ? "bg-black text-white": "bg-transparent text-black"} text-sm rounded-full font-semibold border-black/20 hover:text-white hover:bg-black/20 transition`}
+            className={`${cat === category ? "bg-white text-black": "bg-transparent text-white"} text-sm rounded-full font-semibold border-black/20 hover:text-white hover:bg-black/20 transition`}
           >
             {cat}
           </Button>
@@ -187,8 +189,8 @@ export default function FAQSection(){
       >
         {currentFaqs.map((item, index) => (
           <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger>{item.question}</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-2 text-balance text-sm text-muted-foreground">
+            <AccordionTrigger className="text-white font-extrabold">{item.question}</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-2 text-balance text-sm text-white font-thin">
               <p>{item.answer}</p>
             </AccordionContent>
           </AccordionItem>
@@ -197,6 +199,9 @@ export default function FAQSection(){
     </div>
   </div>
 </section>
+</SectionWrapper>
+</div>
+
 
     );
 }

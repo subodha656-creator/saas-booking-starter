@@ -41,9 +41,10 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-calm-primary: #3b82f6; /* blue-500 */
-  --color-calm-secondary: #10b981; /* green-500 */
-  --color-calm-accent: #f59e0b; /* amber-500 */
+  --color-calm-primary: #82204A; 
+  --color-calm-secondary: #EFF7FF; 
+  --color-calm-accent: #E8DB7D; 
+  --color-calm-tertiary: #231123;
 }
 
 :root {
@@ -120,7 +121,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: #E8DB7D;
   }
 }
 
