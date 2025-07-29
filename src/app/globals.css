@@ -41,10 +41,10 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-calm-primary: #82204A; 
-  --color-calm-secondary: #EFF7FF; 
-  --color-calm-accent: #E8DB7D; 
-  --color-calm-tertiary: #231123;
+--color-calm-primary: #3B4F6B;     /* Muted mauve instead of bright magenta */
+--color-calm-secondary: #F8FAFB;   /* Softer off-white instead of bright blue-white */
+--color-calm-accent: #D4C5A0;      /* Warm beige instead of bright yellow */
+--color-calm-tertiary: #2A2F3A;    /* Softer charcoal instead of deep purple-black */
 }
 
 :root {

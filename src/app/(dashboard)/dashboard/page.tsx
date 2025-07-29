@@ -102,23 +102,23 @@ const BookingHistory: React.FC = async() => {
                       </div>
                     </div>
                     
-                    <div className="flex items-center space-x-3 bg-orange-50 rounded-xl p-3 border border-orange-100">
+                    <div className="flex items-center space-x-3 bg-calm-tertiary rounded-xl p-3 border">
                       <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
                         <MapPin className="w-4 h-4 text-orange-600" />
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500 uppercase tracking-wide">Location</p>
-                        <p className="font-semibold text-gray-800">{booking.location}</p>
+                        <p className="text-xs text-white uppercase tracking-wide">Location</p>
+                        <p className="font-semibold text-white">{booking.location}</p>
                       </div>
                     </div>
                     
-                    <div className="flex items-center space-x-3 bg-blue-50 rounded-xl p-3 border border-blue-100">
+                    <div className="flex items-center space-x-3 bg-calm-primary rounded-xl p-3 border border-blue-100">
                       <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                         <User className="w-4 h-4 text-blue-600" />
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500 uppercase tracking-wide">Attendees</p>
-                        <p className="font-semibold text-gray-800">{booking.attendees} people</p>
+                        <p className="text-xs text-white uppercase tracking-wide">Attendees</p>
+                        <p className="font-semibold text-white">{booking.attendees} people</p>
                       </div>
                     </div>
                   </div>

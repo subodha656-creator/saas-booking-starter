@@ -154,7 +154,6 @@ const UpcomingBookings: React.FC = async() => {
           </div>
         </div>
 
-        {/* Booking Cards */}
         <div className="space-y-4">
           {upcomingBookings.map((booking, index) => {
             const daysUntil = daysAway(booking.booking_date);
@@ -193,7 +192,7 @@ const UpcomingBookings: React.FC = async() => {
                     <div className="grid grid-cols-2 gap-3 mb-4">
                       <div className="bg-white/70 backdrop-blur-sm rounded-xl p-3 border border-calm-primary/20 shadow-sm">
                         <div className="flex items-center space-x-2">
-                          <div className="w-6 h-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <div className="w-6 h-6 bg-gradient-to-br from-calm-primary/100 to-calm-primary/50 rounded-lg flex items-center justify-center flex-shrink-0">
                             <Calendar className="w-3 h-3 text-white" />
                           </div>
                           <div className="min-w-0 flex-1">

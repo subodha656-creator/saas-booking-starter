@@ -9,19 +9,17 @@ export default function HeroSection({
 }) {
   const router = useRouter();
   return (
-   <div
-  className="relative min-h-screen flex flex-col items-center justify-center backdrop-blur-2xl text-white text-center px-4 sm:px-6 lg:px-8"
+  <div
+  className="relative bg-gradient-to-r bg-[url('/assets/meditate.jpg')] from-calm-primary/60 via-calm-primary/80 to-calm-primary/40 min-h-screen flex flex-col items-center justify-center backdrop-blur-2xl text-white text-center px-4 sm:px-6 lg:px-8"
   style={{
-    backgroundImage: `
-      linear-gradient(135deg, rgba(35, 17, 35, 0.85) 0%, rgba(35, 17, 35, 0.75) 50%, rgba(35, 17, 35, 0.85) 100%),
-      url('/assets/meditate.jpg')
-    `,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed'
   }}
 >
+  <div className="absolute backdrop:2xl:blur-2xl top-0 left-0 w-full h-full bg-black opacity-50">
+  </div>
       <div className="absolute top-0 left-0 w-full z-50 px-2 sm:px-4 mb-6 md:mb-0">
         {children}
       </div>
@@ -41,7 +39,7 @@ export default function HeroSection({
         <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto">
           <Button onClick={() => {
     router.push("/signup")
-  }} className="w-full sm:w-auto bg-white hover:bg-calm-primary hover:text-white text-calm-primary font-bold py-4 sm:py-5 md:py-6 px-6 sm:px-7 md:px-8 text-base sm:text-lg rounded-lg shadow-lg transition duration-300 ">
+  }} className="w-full sm:w-auto relative z-[1000] bg-white hover:bg-calm-primary hover:text-white text-calm-primary font-bold py-4 sm:py-5 md:py-6 px-6 sm:px-7 md:px-8 text-base sm:text-lg rounded-lg shadow-lg transition duration-300 ">
             Get Started
           </Button>
           <Button onClick={() => {

@@ -87,12 +87,12 @@ export default function Testimonials() {
   }, [])
 
   return (
-    <section className="px-2 sm:px-4 lg:px-6 py-16 flex justify-center items-center bg-calm-primary/50 flex-col">
+    <section className="px-2 sm:px-4 lg:px-6 py-16 flex justify-center items-center bg-calm-primary/2 flex-col">
       <Button className="bg-calm-primary shadow-lg text-white hover:text-white">
         Testimonials
       </Button>
 
-      <h2 className="text-2xl text-white font-bold text-center mb-8 mt-8">
+      <h2 className="text-2xl text-black drop-shadow-2xl font-bold text-center mb-8 mt-8">
         What Our Users Say
       </h2>
 

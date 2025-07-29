@@ -69,11 +69,11 @@ const cards = [
 
 export default function FeaturesSection(){
     return (
-        <section id="services" className="px-4 sm:px-6 lg:px-8 flex items-center flex-col justify-start py-12 bg-gradient-to-b from-calm-primary/80 to-calm-primary/50">
-            <Button className="bg-cream-100 shadow-sm text-white hover:bg-calm-accent/40 hover:text-white border border-orange-200 px-6 py-2 text-sm font-medium">
+        <section id="services" className="px-4 sm:px-6 lg:px-8 flex items-center flex-col justify-start py-12 bg-white">
+            <Button className="bg-cream-100 shadow-sm text-black hover:bg-calm-primary/40 hover:text-white border border-orange-200 px-6 py-2 text-sm font-medium">
                 Features
             </Button>
-            <h3 className="mt-6 text-2xl mb-8 font-semibold text-white">
+            <h3 className="mt-6 text-2xl mb-8 font-semibold text-black drop-shadow-black/40">
                 Why Consultants and Customers Love our Website
             </h3>
 
@@ -81,7 +81,7 @@ export default function FeaturesSection(){
                 {cards.map((card, index) => (
                     <div
                         key={card.id}
-                        className="group h-[200px] relative overflow-hidden rounded-xl bg-gradient-to-br from-orange-50/80 to-red-50/60 border border-orange-200/50 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] hover:border-orange-300/70"
+                        className="group border border-[outset]/40 h-[200px] relative overflow-hidden rounded-xl bg-gradient-to-br from-calm-primary/80 to-red-50/60  shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] hover:border-orange-300/70"
                         style={{
                             backdropFilter: 'blur(5px)',
                             WebkitBackdropFilter: 'blur(5px)',
@@ -94,18 +94,18 @@ export default function FeaturesSection(){
 
                         <div className="relative p-5 h-full flex flex-col">
                             <div className="flex items-center justify-between mb-3">
-                                <div className="p-2 rounded-lg bg-gradient-to-r from-calm-primary/300 to-red-300 text-white shadow-sm group-hover:shadow-orange-300/30 transition-shadow duration-300">
+                                <div className="p-2 rounded-lg bg-gradient-to-r from-calm-primary/300 to-calm-primary/200 text-white shadow-sm group-hover:shadow-orange-300/30 transition-shadow duration-300">
                                     {card.icon}
                                 </div>
-                                <span className="text-xs font-medium text-orange-700 bg-orange-100/60 px-2 py-1 rounded-full border border-orange-200/50">
+                                <span className="text-xs text-white font-medium bg-calm-primary/60 px-2 py-1 rounded-full border border-calm-primary/50">
                                     {card.stats}
                                 </span>
                             </div>
 
-                            <h3 className="text-lg font-semibold text-orange-900 mb-2 group-hover:text-orange-800 transition-colors duration-300">
+                            <h3 className="text-lg font-semibold text-calm-tertiary mb-2 group-hover:text-calm-tertiary/800 transition-colors duration-300">
                                 {card.title}
                             </h3>
-                            <p className="text-orange-800/80 text-sm leading-relaxed flex-grow group-hover:text-orange-900 transition-colors duration-300">
+                            <p className="text-calm-tertiary text-sm leading-relaxed flex-grow group-hover:text-calm-tertiary/800 transition-colors duration-300">
                                 {card.description}
                             </p>
 

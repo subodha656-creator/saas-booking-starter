@@ -93,25 +93,16 @@ export default function PlanHeroSection({
 
   return (
    <div
-  className="relative min-h-screen flex flex-col items-center justify-center text-white text-center px-4 sm:px-6 lg:px-8"
-  style={{
-    backgroundImage: `
-      linear-gradient(135deg, rgba(35, 17, 35, 0.85) 0%, rgba(35, 17, 35, 0.75) 50%, rgba(35, 17, 35, 0.85) 100%),
-      url('/assets/meditate.jpg')
-    `,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundAttachment: 'fixed'
-  }}
+  className="relative min-h-screen bg-gradient-to-r bg-[url('/assets/meditate.jpg')] bg-no-repeat bg-cover from-calm-primary/60 via-calm-primary/80 to-calm-primary/40 flex flex-col items-center justify-center text-white text-center px-4 sm:px-6 lg:px-8"
+ 
 >
+    <div className="absolute backdrop:2xl:blur-2xl top-0 left-0 w-full h-full bg-black opacity-50">
+  </div>
       <div className="absolute top-0 left-0 w-full z-50 px-2 sm:px-4 mb-6 md:mb-0">
         {children}
       </div>
 
-      {/* Floating Cards */}
       <div className="absolute lg:block hidden inset-0 pointer-events-none overflow-hidden">
-        {/* Left Card */}
         <div className="absolute left-4 sm:left-8 lg:left-16 top-1/4 transform -rotate-45 hover:rotate-0 transition-transform duration-500 pointer-events-auto">
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-6 w-48 sm:w-56 lg:w-64 shadow-2xl hover:shadow-3xl hover:bg-white/15 transition-all duration-300">
             <div className="transform rotate-45 hover:rotate-0 transition-transform duration-300">

@@ -79,11 +79,8 @@ export function PricingSection(){
                 {pricingData.monthly.map((plan) => (
                   <Card 
                     key={plan.id}
-                    style={{
-                     
-                     background: "linear-gradient(145deg, #82204A 0%, #B64E7A 50%, #82204A 100%)"
-                    }}
-                    className={`w-full hover:shadow-lg transition-shadow duration-300 ${
+                   
+                    className={`w-full bg-gradient-to-b from-calm-primary to-calm-secondary hover:shadow-lg transition-shadow duration-300 ${
                       plan.popular ? 'border-2 border-calm-primary relative' : ''
                     }`}
                   >
@@ -125,10 +122,8 @@ export function PricingSection(){
                 {pricingData.yearly.map((plan) => (
                   <Card 
                     key={plan.id}
-                    style={{
-                      background: "linear-gradient(135deg, #82204A 0%, #A94064 50%, #82204A 100%)"
-                    }}
-                    className={`w-full hover:shadow-lg transition-shadow duration-300 ${
+                   
+                    className={`w-full hover:shadow-lg bg-gradient-to-b from-calm-primary to-calm-secondary transition-shadow duration-300 ${
                       plan.popular ? 'border-2 border-calm-primary relative' : ''
                     }`}
                   >

@@ -58,18 +58,11 @@ export default function DashboardHeroSection({
       bookSession && <NewBookingForm open={bookSession} onClose={handleBookSession as ()=> void}/>
     }
     <div
-      className="relative min-h-[70vh] flex flex-col items-center justify-center text-white px-4 sm:px-6 lg:px-8"
-      style={{
-        backgroundImage: `
-          linear-gradient(135deg, rgba(35, 17, 35, 0.75) 0%, rgba(35, 17, 35, 0.65) 50%, rgba(35, 17, 35, 0.75) 100%),
-          url('/assets/meditate.jpg')
-        `,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
-      }}
+      className="relative min-h-[70vh] bg-gradient-to-r bg-[url('/assets/meditate.jpg')] bg-no-repeat bg-cover from-calm-primary/60 via-calm-primary/80 to-calm-primary/40 flex flex-col items-center justify-center text-white px-4 sm:px-6 lg:px-8"
+      
     >
+        <div className="absolute backdrop:2xl:blur-2xl top-0 left-0 w-full h-full bg-black opacity-50">
+  </div>
       <div className="absolute top-0 left-0 w-full z-50 px-2 sm:px-4 mb-6 md:mb-0">
         {children}
       </div>

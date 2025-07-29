@@ -121,7 +121,7 @@ const SubscriptionDetails: React.FC = async() => {
                         </div>
                         <div>
                           <div className="text-xs text-gray-500 font-semibold">Payment Method</div>
-                          <div className="font-bold text-gray-800 text-sm">**** 4242</div>
+                          <div className="font-bold text-gray-800 text-sm">Card</div>
                         </div>
                       </div>
                     </div>
@@ -146,7 +146,7 @@ const SubscriptionDetails: React.FC = async() => {
                       <div className="text-3xl lg:text-4xl font-black bg-gradient-to-r from-calm-primary to-calm-tertiary bg-clip-text text-transparent">
                         ${currentPlan[0]?.amount}
                       </div>
-                      <div className="text-sm text-gray-600">per {currentPlan[0]?.billingCycle}</div>
+                      <div className="text-sm text-gray-600">per billing cycle</div>
                     </div>
                   </div>
 
@@ -174,7 +174,7 @@ const SubscriptionDetails: React.FC = async() => {
                         <CreditCard className="w-6 h-6 text-orange-500" />
                         <div>
                           <div className="text-sm text-gray-600">Payment Method</div>
-                          <div className="font-semibold text-gray-800">**** 4242</div>
+                          <div className="font-semibold text-gray-800">Card</div>
                         </div>
                       </div>
                     </div>

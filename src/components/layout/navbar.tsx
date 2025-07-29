@@ -82,7 +82,7 @@ export default function Navbar({
         )
       }
       <SectionWrapper>
-        <main className="navbar md:px-6 px-0 bg-calm-primary shadow-lg h-16 my-6 relative">
+        <main className="navbar md:px-6 px-0 bg-gradient-to-r from-calm-primary/80 via-calm-primary/40 to-calm-primary/60 shadow-lg h-16 my-6 relative">
           <nav className="flex items-center justify-between h-full">
             <Link
               href={"/"}
@@ -98,7 +98,7 @@ export default function Navbar({
 
             <div className="hidden md:block">
               {accessNavbar ? (
-                <Menubar className="shadow-none text-white bg-calm-primary border-none menu-large gap-8">
+                <Menubar className="shadow-none text-white bg-calm-primary/40 border-none menu-large gap-8">
                   {/* Dashboard Home */}
                  
 
@@ -162,7 +162,7 @@ export default function Navbar({
                   </MenubarMenu>
                 </Menubar>
               ) : (
-                <Menubar className="shadow-none text-white bg-calm-primary border-none menu-large gap-12">
+                <Menubar className="shadow-none text-white bg-calm-primary/40 border-none menu-large gap-12">
                   <MenubarMenu>
                     <MenubarTrigger
                       onClick={() => {

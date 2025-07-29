@@ -104,7 +104,7 @@ const NewBookingForm: React.FC<NewBookingFormProps> = ({ open, onClose }) => {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-80 overflow-hidden">
+    <div className="fixed inset-0 z-10000 overflow-hidden">
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
       
       <div className="relative min-h-screen flex items-center justify-center p-4">
@@ -207,7 +207,7 @@ const NewBookingForm: React.FC<NewBookingFormProps> = ({ open, onClose }) => {
                                 name='date'
                                 value={formData.date}
                                 onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-calm-primary focus:border-transparent bg-white/70 backdrop-blur-sm"
+                                className="w-full text-black pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-calm-primary focus:border-transparent bg-white/70 backdrop-blur-sm"
                               />
                             </div>
                           </div>
@@ -224,7 +224,7 @@ const NewBookingForm: React.FC<NewBookingFormProps> = ({ open, onClose }) => {
                                 placeholder="Number of people"
                                 value={formData.attendees}
                                 onChange={(e) => setFormData({ ...formData, attendees: e.target.value })}
-                                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-calm-primary focus:border-transparent bg-white/70 backdrop-blur-sm"
+                                className="w-full text-black pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-calm-primary focus:border-transparent bg-white/70 backdrop-blur-sm"
                               />
                             </div>
                           </div>
@@ -242,7 +242,7 @@ const NewBookingForm: React.FC<NewBookingFormProps> = ({ open, onClose }) => {
                                 name='start_time'
                                 value={formData.startTime}
                                 onChange={(e) => setFormData({ ...formData, startTime: e.target.value })}
-                                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-calm-primary focus:border-transparent bg-white/70 backdrop-blur-sm"
+                                className="w-full text-black pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-calm-primary focus:border-transparent bg-white/70 backdrop-blur-sm"
                               />
                             </div>
                           </div>
@@ -258,7 +258,7 @@ const NewBookingForm: React.FC<NewBookingFormProps> = ({ open, onClose }) => {
                                 name='end_time'
                                 value={formData.endTime}
                                 onChange={(e) => setFormData({ ...formData, endTime: e.target.value })}
-                                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-calm-primary focus:border-transparent bg-white/70 backdrop-blur-sm"
+                                className="w-full text-black pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-calm-primary focus:border-transparent bg-white/70 backdrop-blur-sm"
                               />
                             </div>
                           </div>
@@ -274,7 +274,7 @@ const NewBookingForm: React.FC<NewBookingFormProps> = ({ open, onClose }) => {
                               name='location'
                               value={formData.location}
                               onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-calm-primary focus:border-transparent bg-white/70 backdrop-blur-sm"
+                              className="w-full text-black pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-calm-primary focus:border-transparent bg-white/70 backdrop-blur-sm"
                             >
                               <option value="">Select a location</option>
                               {locations.map((location) => (
@@ -292,7 +292,7 @@ const NewBookingForm: React.FC<NewBookingFormProps> = ({ open, onClose }) => {
                             onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                             placeholder="Any special requirements or notes..."
                             rows={3}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-calm-primary focus:border-transparent bg-white/70 backdrop-blur-sm"
+                            className="w-full text-black pl-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-calm-primary focus:border-transparent bg-white/70 backdrop-blur-sm"
                           />
                         </div>
 
